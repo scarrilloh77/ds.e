@@ -1,0 +1,9 @@
+.dse-button__container {
+  background: var(--dse-btn-primary-bg, #5ece7b);
+  color: var(--dse-btn-primary-color, #fff);
+  border: none;
+  padding: .25rem;
+  display: flex;
+}
+
+/*# sourceMappingURL=index.71886189.css.map */

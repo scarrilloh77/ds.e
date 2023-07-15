@@ -1,0 +1,29 @@
+{
+  "name": "@ds.e/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "yarn lerna run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lerna": "^7.1.3",
+    "process": "^0.11.10"
+  },
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "playgrounds/*"
+    ],
+    "nohoist": [
+      "**/normalize-scss"
+    ]
+  },
+  "dependencies": {
+    "sass-migrator": "^1.7.3"
+  }
+}
