@@ -2948,12 +2948,12 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
 var _react1 = require("@ds.e/react");
-var _buttonCss = require("@ds.e/scss/lib/Button.css");
+var _utilitiesCss = require("@ds.e/scss/lib/Utilities.css");
 (0, _clientDefault.default).createRoot(document.getElementById("root")).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Color), {
         hexCode: "#000",
-        width: "1rem",
-        height: "1rem"
+        height: "md",
+        width: "xxxl"
     }, void 0, false, {
         fileName: "playgrounds/react/src/index.tsx",
         lineNumber: 8,
@@ -2970,7 +2970,7 @@ var _buttonCss = require("@ds.e/scss/lib/Button.css");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@ds.e/scss/lib/Button.css":"jzS5J","@ds.e/react":"8hAEp"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@ds.e/react":"8hAEp","@ds.e/scss/lib/Utilities.css":"BuHHg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27155,7 +27155,67 @@ module.exports = require("ef03b89c8fe2794e");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"gkKU3":[function(require,module,exports) {
+},{}],"8hAEp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Color", ()=>(0, _colorJsDefault.default));
+parcelHelpers.export(exports, "Spacing", ()=>(0, _spacingJsDefault.default));
+var _colorJs = require("./atoms/color/Color.js");
+var _colorJsDefault = parcelHelpers.interopDefault(_colorJs);
+var _spacingJs = require("./foundation/Spacing.js");
+var _spacingJsDefault = parcelHelpers.interopDefault(_spacingJs);
+
+},{"./atoms/color/Color.js":"kh5ZM","./foundation/Spacing.js":"iHSwx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kh5ZM":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2171 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2171.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Color);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _spacingJs = require("../../foundation/Spacing.js");
+var _spacingJsDefault = parcelHelpers.interopDefault(_spacingJs);
+const Color = ({ hexCode, width = (0, _spacingJsDefault.default).sm, height = (0, _spacingJsDefault.default).sm })=>{
+    const className = `dse-width-${width} dse-height-${height}`;
+    return /*#__PURE__*/ (0, _reactDefault.default).createElement("div", {
+        className: className,
+        style: {
+            backgroundColor: hexCode
+        }
+    });
+};
+_c = Color;
+var _c;
+$RefreshReg$(_c, "Color");
+
+  $parcel$ReactRefreshHelpers$2171.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","../../foundation/Spacing.js":"iHSwx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iHSwx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Spacing);
+const spaces = {
+    none: "none",
+    xxxs: "xxxs",
+    xxs: "xxs",
+    xs: "xs",
+    sm: "sm",
+    md: "md",
+    lg: "lg",
+    xl: "xl",
+    xxl: "xxl",
+    xxxl: "xxxl"
+};
+var Spacing = Object.freeze(spaces);
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27323,43 +27383,6 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}],"jzS5J":[function() {},{}],"8hAEp":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Color", ()=>(0, _colorJsDefault.default));
-var _colorJs = require("./atoms/color/Color.js");
-var _colorJsDefault = parcelHelpers.interopDefault(_colorJs);
-
-},{"./atoms/color/Color.js":"kh5ZM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kh5ZM":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$2171 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$2171.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Color);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-const Color = ({ hexCode, width, height })=>{
-    return /*#__PURE__*/ (0, _reactDefault.default).createElement("div", {
-        style: {
-            backgroundColor: hexCode,
-            width,
-            height
-        }
-    });
-};
-_c = Color;
-var _c;
-$RefreshReg$(_c, "Color");
-
-  $parcel$ReactRefreshHelpers$2171.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["gO6AB","1xC6H","gzIQi"], "gzIQi", "parcelRequire9684")
+},{"7422ead32dcc1e6b":"786KC"}],"BuHHg":[function() {},{}]},["gO6AB","1xC6H","gzIQi"], "gzIQi", "parcelRequire9684")
 
 //# sourceMappingURL=index.7cee775c.js.map
