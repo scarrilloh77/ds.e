@@ -5,8 +5,6 @@ import '@ds.e/scss/lib/Button.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <div>
-    <div>Hola</div>
     <Button label="Hola" />
-    <Paragraph />
   </div>
 );

@@ -5,7 +5,11 @@ interface ButtonProps {
 }
 
 const Button = ({ label }: ButtonProps) => {
-  return <button className="dse-button__container">{label}</button>;
+  return (
+    <button className="dse-button__container">
+      {label || 'Button'} - Label not here
+    </button>
+  );
 };
 
 export default Button;

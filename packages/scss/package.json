@@ -5,13 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node src/scripts/build.js"
+    "build": "node src/scripts/build.js",
+    "dev": "nodemon --watch src --exec yarn build -e scss"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "normalize-scss": "^7.0.1",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "sass-migrator": "^1.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

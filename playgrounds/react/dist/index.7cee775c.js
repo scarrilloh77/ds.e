@@ -2950,28 +2950,14 @@ var _clientDefault = parcelHelpers.interopDefault(_client);
 var _react1 = require("@ds.e/react");
 var _buttonCss = require("@ds.e/scss/lib/Button.css");
 (0, _clientDefault.default).createRoot(document.getElementById("root")).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-    children: [
-        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: "Hola"
-        }, void 0, false, {
-            fileName: "playgrounds/react/src/index.tsx",
-            lineNumber: 8,
-            columnNumber: 5
-        }, undefined),
-        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Button), {
-            label: "Hola"
-        }, void 0, false, {
-            fileName: "playgrounds/react/src/index.tsx",
-            lineNumber: 9,
-            columnNumber: 5
-        }, undefined),
-        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Paragraph), {}, void 0, false, {
-            fileName: "playgrounds/react/src/index.tsx",
-            lineNumber: 10,
-            columnNumber: 5
-        }, undefined)
-    ]
-}, void 0, true, {
+    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Button), {
+        label: "Hola"
+    }, void 0, false, {
+        fileName: "playgrounds/react/src/index.tsx",
+        lineNumber: 8,
+        columnNumber: 5
+    }, undefined)
+}, void 0, false, {
     fileName: "playgrounds/react/src/index.tsx",
     lineNumber: 7,
     columnNumber: 3
@@ -27191,7 +27177,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 const Button = ({ label })=>{
     return /*#__PURE__*/ (0, _reactDefault.default).createElement("button", {
         className: "dse-button__container"
-    }, label);
+    }, label || "Button", " - Label not here");
 };
 _c = Button;
 var _c;
