@@ -1,3 +1,2 @@
-import { Button } from './atoms/Button';
-import { Paragraph } from './atoms/Paragraph';
-export { Button, Paragraph };
+import Color from './atoms/color';
+export { Color };

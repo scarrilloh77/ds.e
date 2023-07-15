@@ -2950,8 +2950,10 @@ var _clientDefault = parcelHelpers.interopDefault(_client);
 var _react1 = require("@ds.e/react");
 var _buttonCss = require("@ds.e/scss/lib/Button.css");
 (0, _clientDefault.default).createRoot(document.getElementById("root")).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Button), {
-        label: "Hola"
+    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Color), {
+        hexCode: "#000",
+        width: "1rem",
+        height: "1rem"
     }, void 0, false, {
         fileName: "playgrounds/react/src/index.tsx",
         lineNumber: 8,
@@ -2968,7 +2970,7 @@ var _buttonCss = require("@ds.e/scss/lib/Button.css");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@ds.e/react":"8hAEp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@ds.e/scss/lib/Button.css":"jzS5J"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@ds.e/scss/lib/Button.css":"jzS5J","@ds.e/react":"8hAEp"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27153,42 +27155,7 @@ module.exports = require("ef03b89c8fe2794e");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"8hAEp":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Button", ()=>(0, _buttonJsDefault.default));
-parcelHelpers.export(exports, "Paragraph", ()=>(0, _paragraphJs.Paragraph));
-var _buttonJs = require("./atoms/Button/Button.js");
-var _buttonJsDefault = parcelHelpers.interopDefault(_buttonJs);
-var _paragraphJs = require("./atoms/Paragraph/Paragraph.js");
-
-},{"./atoms/Button/Button.js":"iDORF","./atoms/Paragraph/Paragraph.js":"83Pdf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iDORF":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$72ad = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$72ad.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Button);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-const Button = ({ label })=>{
-    return /*#__PURE__*/ (0, _reactDefault.default).createElement("button", {
-        className: "dse-button__container"
-    }, label || "Button", " - Label not here");
-};
-_c = Button;
-var _c;
-$RefreshReg$(_c, "Button");
-
-  $parcel$ReactRefreshHelpers$72ad.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports) {
+},{}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27356,30 +27323,43 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}],"83Pdf":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$3cb1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"7422ead32dcc1e6b":"786KC"}],"jzS5J":[function() {},{}],"8hAEp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Color", ()=>(0, _colorJsDefault.default));
+var _colorJs = require("./atoms/color/Color.js");
+var _colorJsDefault = parcelHelpers.interopDefault(_colorJs);
+
+},{"./atoms/color/Color.js":"kh5ZM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kh5ZM":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2171 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3cb1.prelude(module);
+$parcel$ReactRefreshHelpers$2171.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Paragraph", ()=>Paragraph);
+parcelHelpers.export(exports, "default", ()=>Color);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-const Paragraph = ()=>{
-    return /*#__PURE__*/ (0, _reactDefault.default).createElement("div", null, "Paragraph");
+const Color = ({ hexCode, width, height })=>{
+    return /*#__PURE__*/ (0, _reactDefault.default).createElement("div", {
+        style: {
+            backgroundColor: hexCode,
+            width,
+            height
+        }
+    });
 };
-_c = Paragraph;
+_c = Color;
 var _c;
-$RefreshReg$(_c, "Paragraph");
+$RefreshReg$(_c, "Color");
 
-  $parcel$ReactRefreshHelpers$3cb1.postlude(module);
+  $parcel$ReactRefreshHelpers$2171.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jzS5J":[function() {},{}]},["gO6AB","1xC6H","gzIQi"], "gzIQi", "parcelRequire9684")
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["gO6AB","1xC6H","gzIQi"], "gzIQi", "parcelRequire9684")
 
 //# sourceMappingURL=index.7cee775c.js.map

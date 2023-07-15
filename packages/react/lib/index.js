@@ -1,3 +1,2 @@
-export { default as Button } from './atoms/Button/Button.js';
-export { Paragraph } from './atoms/Paragraph/Paragraph.js';
+export { default as Color } from './atoms/color/Color.js';
 //# sourceMappingURL=index.js.map
