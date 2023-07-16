@@ -1,5 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  KeyboardEventHandler,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import Text from '../../atoms/Text';
+
+const KEY_CODES = {
+  ENTER: 'Enter',
+  SPACE: ' ',
+  DOWN_ARROW: 'ArrowDown',
+};
 
 interface SelectOption {
   label: string;
@@ -27,8 +38,12 @@ const Select = ({
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedIndex, setSelectedIndex] = useState<null | number>(null);
+  const [highlightedIndex, setHighlightedIndex] = useState<null | number>(null);
   const [overlayTop, setOverlayTop] = useState<number>(0);
   const labelRef = useRef<HTMLButtonElement>(null);
+  const [optionRefs, setOptionRefs] = useState<
+    React.RefObject<HTMLLIElement>[]
+  >([]);
 
   const onLabelClick = () => {
     setIsOpen((prev) => !prev);
@@ -50,9 +65,42 @@ const Select = ({
     selectedOption = options[selectedIndex];
   }
 
+  const highlightItem = (optionIndex: number | null) => {
+    setHighlightedIndex(optionIndex);
+  };
+
+  const onButtonKeyDown: KeyboardEventHandler = (event) => {
+    event.preventDefault();
+    console.log(event.key);
+    if (
+      [KEY_CODES.ENTER, KEY_CODES.SPACE, KEY_CODES.DOWN_ARROW].includes(
+        event.key
+      )
+    ) {
+      setIsOpen(true);
+      highlightItem(0);
+    }
+  };
+
+  useEffect(() => {
+    setOptionRefs(options.map((_) => React.createRef<HTMLLIElement>()));
+  }, [options.length]);
+
+  useEffect(() => {
+    if (highlightedIndex !== null && isOpen) {
+      const ref = optionRefs[highlightedIndex];
+      if (ref && ref.current) {
+        ref.current.focus();
+      }
+    }
+  }, [isOpen]);
+
+  console.log(optionRefs);
+
   return (
     <div className="dse-select">
       <button
+        onKeyDown={onButtonKeyDown}
         aria-controls="dse-select-list"
         aria-haspopup={true}
         aria-expanded={isOpen ? true : undefined}
@@ -89,17 +137,22 @@ const Select = ({
         >
           {options.map((option, optionIndex) => {
             const isSelected = selectedIndex === optionIndex;
+            const isHighlighted = highlightedIndex === optionIndex;
+
+            const ref = optionRefs[optionIndex];
 
             const renderOptionProps = {
               option,
               isSelected,
               getOptionRecommendedProps: (overrideProps = {}) => {
                 return {
+                  ref,
+                  tabIndex: isHighlighted ? -1 : 0,
+                  onMouseEnter: () => highlightItem(optionIndex),
+                  onMouseLeave: () => highlightItem(null),
                   className: `dse-select__option ${
-                    isSelected
-                      ? 'dse-select__option--selected dse-select__option--no-hover'
-                      : ''
-                  }`,
+                    isSelected ? 'dse-select__option--selected' : ''
+                  } ${isHighlighted ? 'dse-select__option--highlighted' : ''}`,
                   key: option.value,
                   onClick: () => onOptionSelected(option, optionIndex),
                   ...overrideProps,
@@ -112,15 +165,7 @@ const Select = ({
             }
 
             return (
-              <li
-                key={option.value}
-                className={`dse-select__option ${
-                  isSelected
-                    ? 'dse-select__option--selected dse-select__option--no-hover'
-                    : ''
-                }`}
-                onClick={() => onOptionSelected(option, optionIndex)}
-              >
+              <li {...renderOptionProps.getOptionRecommendedProps()}>
                 <Text>{option.label}</Text>
                 {isSelected && (
                   <svg
