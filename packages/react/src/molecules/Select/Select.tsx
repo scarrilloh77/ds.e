@@ -6,16 +6,24 @@ interface SelectOption {
   value: string;
 }
 
+interface RenderOptionProps {
+  isSelected: boolean;
+  option: SelectOption;
+  getOptionRecommendedProps: (overrideProps?: Object) => Object;
+}
+
 interface SelectProps {
   onOptionSelected?: (option: SelectOption, optionIndex: number) => void;
   options?: SelectOption[];
   label?: string;
+  renderOption?: (props: RenderOptionProps) => React.ReactNode;
 }
 
 const Select = ({
   options = [],
   label = 'Please select an option',
   onOptionSelected: handler,
+  renderOption,
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedIndex, setSelectedIndex] = useState<null | number>(null);
@@ -29,6 +37,7 @@ const Select = ({
   const onOptionSelected = (option: SelectOption, optionIndex: number) => {
     handler && handler(option, optionIndex);
     setSelectedIndex(optionIndex);
+    setIsOpen(false);
   };
 
   useEffect(() => {
@@ -56,14 +65,14 @@ const Select = ({
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           width="1rem"
           height="1rem"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M19.5 8.25l-7.5 7.5-7.5-7.5"
           />
         </svg>
@@ -72,6 +81,28 @@ const Select = ({
         <ul className="dse-select__overlay" style={{ top: overlayTop }}>
           {options.map((option, optionIndex) => {
             const isSelected = selectedIndex === optionIndex;
+
+            const renderOptionProps = {
+              option,
+              isSelected,
+              getOptionRecommendedProps: (overrideProps = {}) => {
+                return {
+                  className: `dse-select__option ${
+                    isSelected
+                      ? 'dse-select__option--selected dse-select__option--no-hover'
+                      : ''
+                  }`,
+                  key: option.value,
+                  onClick: () => onOptionSelected(option, optionIndex),
+                  ...overrideProps,
+                };
+              },
+            };
+
+            if (renderOption) {
+              return renderOption(renderOptionProps);
+            }
+
             return (
               <li
                 key={option.value}
