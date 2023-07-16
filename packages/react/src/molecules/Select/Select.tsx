@@ -53,6 +53,9 @@ const Select = ({
   return (
     <div className="dse-select">
       <button
+        aria-controls="dse-select-list"
+        aria-haspopup={true}
+        aria-expanded={isOpen ? true : undefined}
         ref={labelRef}
         className="dse-select__label"
         onClick={onLabelClick}
@@ -78,7 +81,12 @@ const Select = ({
         </svg>
       </button>
       {isOpen && (
-        <ul className="dse-select__overlay" style={{ top: overlayTop }}>
+        <ul
+          role="menu"
+          id="dse-select-list"
+          className="dse-select__overlay"
+          style={{ top: overlayTop }}
+        >
           {options.map((option, optionIndex) => {
             const isSelected = selectedIndex === optionIndex;
 
