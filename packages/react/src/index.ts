@@ -1,4 +1,5 @@
-import Color from './atoms/color';
-import Text from './atoms/text';
+import Color from './atoms/Color';
+import Text from './atoms/Text';
+import Margin from './atoms/Margin';
 
-export { Color, Text };
+export { Color, Text, Margin };

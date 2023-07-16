@@ -10,7 +10,7 @@ const Text = ({
   size = FontSize.base as TextProps['size'],
   children,
 }: TextProps) => {
-  const className = `dse-text-${size}`;
+  const className = `dse-text dse-text-${size}`;
   return <div className={className}>{children}</div>;
 };
 
