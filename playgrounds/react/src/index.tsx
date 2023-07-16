@@ -5,6 +5,7 @@ import '@ds.e/scss/lib/Utilities.css';
 import '@ds.e/scss/lib/Margin.css';
 import '@ds.e/scss/lib/Text.css';
 import '@ds.e/scss/lib/global.css';
+import '@ds.e/scss/lib/Select.css';
 
 const options = [
   {
@@ -22,11 +23,12 @@ const options = [
 ];
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <div>
-    <Color hexCode="#000" height="md" width="md" />
-    <Margin space="none">
+  <div style={{ padding: '40px' }}>
+    {/* <Color hexCode="#000" height="md" width="md" /> */}
+    {/* <Margin space="none">
       <Text size="xs">Hola mundo</Text>
-    </Margin>
+    </Margin> */}
     <Select options={options} />
+    {/* <p>Some text</p> */}
   </div>
 );
