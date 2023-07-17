@@ -10,6 +10,8 @@ const KEY_CODES = {
   ENTER: 'Enter',
   SPACE: ' ',
   DOWN_ARROW: 'ArrowDown',
+  UP_ARROW: 'ArrowUp',
+  ESC: 'Escape',
 };
 
 interface SelectOption {
@@ -29,6 +31,31 @@ interface SelectProps {
   label?: string;
   renderOption?: (props: RenderOptionProps) => React.ReactNode;
 }
+
+const getPreviousOptionIndex = (
+  currentIndex: number | null,
+  options: Array<SelectOption>
+) => {
+  if (currentIndex === null) {
+    return 0;
+  }
+
+  if (currentIndex === 0) {
+    return options.length - 1;
+  }
+
+  return currentIndex - 1;
+};
+
+const getNextOptionIndex = (
+  currentIndex: number | null,
+  options: Array<SelectOption>
+) => {
+  if (currentIndex === null || currentIndex === options.length - 1) {
+    return 0;
+  }
+  return currentIndex + 1;
+};
 
 const Select = ({
   options = [],
@@ -55,10 +82,6 @@ const Select = ({
     setIsOpen(false);
   };
 
-  useEffect(() => {
-    setOverlayTop((labelRef.current?.offsetHeight || 0) + 5);
-  }, [labelRef.current?.offsetHeight]);
-
   let selectedOption = null;
 
   if (selectedIndex !== null) {
@@ -82,6 +105,29 @@ const Select = ({
     }
   };
 
+  const onOptionKeyDown: KeyboardEventHandler = (event) => {
+    console.log(event.key);
+    if (event.key === KEY_CODES.ESC) {
+      setIsOpen(false);
+      return;
+    }
+    if (event.key === KEY_CODES.DOWN_ARROW) {
+      highlightItem(getNextOptionIndex(highlightedIndex, options));
+    }
+
+    if (event.key === KEY_CODES.UP_ARROW) {
+      highlightItem(getPreviousOptionIndex(highlightedIndex, options));
+    }
+
+    if (event.key === KEY_CODES.ENTER) {
+      onOptionSelected(options[highlightedIndex!], highlightedIndex!);
+    }
+  };
+
+  useEffect(() => {
+    setOverlayTop((labelRef.current?.offsetHeight || 0) + 5);
+  }, [labelRef.current?.offsetHeight]);
+
   useEffect(() => {
     setOptionRefs(options.map((_) => React.createRef<HTMLLIElement>()));
   }, [options.length]);
@@ -93,9 +139,7 @@ const Select = ({
         ref.current.focus();
       }
     }
-  }, [isOpen]);
-
-  console.log(optionRefs);
+  }, [isOpen, highlightedIndex]);
 
   return (
     <div className="dse-select">
@@ -147,6 +191,10 @@ const Select = ({
               getOptionRecommendedProps: (overrideProps = {}) => {
                 return {
                   ref,
+                  role: 'menuitemradio',
+                  'aria-label': option.label,
+                  'aria-checked': isSelected ? true : undefined,
+                  onKeyDown: onOptionKeyDown,
                   tabIndex: isHighlighted ? -1 : 0,
                   onMouseEnter: () => highlightItem(optionIndex),
                   onMouseLeave: () => highlightItem(null),
